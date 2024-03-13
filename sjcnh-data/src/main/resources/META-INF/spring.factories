@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sjcnh.data.configuration.DataAutoConfiguration,\
+  com.sjcnh.data.configuration.SjcnhDataConfig

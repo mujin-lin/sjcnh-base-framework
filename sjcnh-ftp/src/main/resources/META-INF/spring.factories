@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sjcnh.ftp.config.FtpInitializationAutoConfiguration,\
+  com.sjcnh.ftp.config.FtpConfig

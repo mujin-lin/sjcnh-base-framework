@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.sjcnh.abstraction.redis.config.RedisAutoConfig,\
+  com.sjcnh.abstraction.web.config.BeanConfigScan,\
+  com.sjcnh.abstraction.web.config.CorsConfigProperties,\
+  com.sjcnh.abstraction.web.utils.ApplicationContextUtil

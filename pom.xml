@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sjcnh</groupId>
+    <artifactId>sjcnh-base-framework</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>sjcnh-base-framework</name>
+    <modules>
+        <module>sjcnh-common</module>
+        <module>sjcnh-data</module>
+        <module>sjcnh-web</module>
+        <module>sjcnh-ftp</module>
+        <module>sjcnh-mongo-core</module>
+        <module>sjcnh-abstract-web</module>
+        <module>sjcnh-apiclient</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>2.7.16</spring.boot.version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <sjcnh.framework.version>1.0.0</sjcnh.framework.version>
+        <apache.commons3.version>3.12.0</apache.commons3.version>
+        <apache.commons.net>3.9.0</apache.commons.net>
+        <jackson.core.version>2.13.5</jackson.core.version>
+        <google.guava.version>32.0.1-jre</google.guava.version>
+        <mybayis-plus.version>3.5.3.1</mybayis-plus.version>
+        <druid.version>1.2.16</druid.version>
+        <httpClient.version>4.5.13</httpClient.version>
+
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.0.4.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- apache 常用工具包 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.commons3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sjcnh</groupId>
+                <artifactId>sjcnh-common</artifactId>
+                <version>${sjcnh.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sjcnh</groupId>
+                <artifactId>sjcnh-abstract-web</artifactId>
+                <version>${sjcnh.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google.guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybayis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${apache.commons.net}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sjcnh</groupId>
+                <artifactId>sjcnh-data</artifactId>
+                <version>${sjcnh.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpClient.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- 要生成Javadoc和Source jar文件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration> <!-- add this to disable checking -->
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>public</id>
+            <name>public</name>
+            <url>http://maven.charily.top:90/repository/maven-public/</url>
+        </repository>
+    </distributionManagement>
+</project>
+
